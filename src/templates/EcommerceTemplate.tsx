@@ -45,7 +45,7 @@ export const EcommerceTemplate = ({
   const { hasCollections, loading: loadingCollections } = useCollections()
 
   const header = (
-    <div className={`py-2 ${headerClassName}`}>
+    <div className={`py-4 ${headerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -53,26 +53,26 @@ export const EcommerceTemplate = ({
 
           {/* Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex space-x-6">
+            <nav className="flex space-x-8">
               {!loadingCollections && hasCollections && (
                 <ScrollLink 
                   to="/#collections" 
-                  className="text-foreground/70 hover:text-foreground transition-colors"
+                  className="text-sm uppercase tracking-wider text-foreground/70 hover:text-foreground transition-colors font-normal"
                 >
                   Collections
                 </ScrollLink>
               )}
               <ScrollLink 
                 to="/#products" 
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-sm uppercase tracking-wider text-foreground/70 hover:text-foreground transition-colors font-normal"
               >
-                Products
+                Shop
               </ScrollLink>
               <Link 
                 to="/blog" 
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-sm uppercase tracking-wider text-foreground/70 hover:text-foreground transition-colors font-normal"
               >
-                Blog
+                Editorial
               </Link>
             </nav>
           </div>
@@ -113,45 +113,53 @@ export const EcommerceTemplate = ({
   )
 
   const footer = (
-    <div className={`bg-black text-white py-12 ${footerClassName}`}>
+    <div className={`bg-foreground text-background py-16 ${footerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
-          <div>
+          <div className="md:col-span-2">
             <BrandLogoLeft />
-            <p className="mt-4 text-white/70">
-              Your trusted online store
+            <p className="mt-6 text-background/70 font-light max-w-md leading-relaxed">
+              Editorial-chic women's fashion for the modern wardrobe. Timeless pieces crafted with care.
             </p>
           </div>
 
-          {/* Links */}
+          {/* Shop Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Links</h3>
-            <div className="space-y-2">
+            <h3 className="font-normal mb-4 uppercase tracking-wider text-sm">Shop</h3>
+            <div className="space-y-3">
               <Link 
                 to="/" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block text-background/70 hover:text-background transition-colors font-light"
               >
-                Home
+                New Arrivals
+              </Link>
+              <Link 
+                to="/" 
+                className="block text-background/70 hover:text-background transition-colors font-light"
+              >
+                Collections
               </Link>
               <Link 
                 to="/blog" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block text-background/70 hover:text-background transition-colors font-light"
               >
-                Blog
+                Editorial
               </Link>
             </div>
           </div>
 
-          {/* Social Links */}
+          {/* Follow Us */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Follow Us</h3>
+            <h3 className="font-normal mb-4 uppercase tracking-wider text-sm">Follow Us</h3>
             <SocialLinks />
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/70">
-          <p>&copy; 2025 Your Store. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-background/20 text-center">
+          <p className="text-background/60 text-sm font-light">
+            &copy; 2025 Editorial Fashion. All rights reserved.
+          </p>
         </div>
       </div>
     </div>

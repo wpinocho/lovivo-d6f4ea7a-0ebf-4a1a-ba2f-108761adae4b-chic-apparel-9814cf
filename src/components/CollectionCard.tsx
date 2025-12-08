@@ -9,47 +9,33 @@ interface CollectionCardProps {
 
 export const CollectionCard = ({ collection, onViewProducts }: CollectionCardProps) => {
   return (
-    <Card className="bg-white border border-gray-200 overflow-hidden">
+    <Card className="border-0 group cursor-pointer" onClick={() => onViewProducts(collection.id)}>
       <CardContent className="p-0">
-        <div className="aspect-[4/3] bg-gray-100 overflow-hidden">
+        <div className="aspect-[3/4] bg-muted overflow-hidden mb-3 relative">
           {collection.image ? (
             <img 
               src={collection.image} 
               alt={collection.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
+            <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
               No image
             </div>
           )}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
         </div>
         
-        <div className="p-4">
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-black font-semibold text-lg line-clamp-1">
-              {collection.name}
-            </h3>
-            {collection.featured && (
-              <span className="bg-orange-500 text-white text-xs px-2 py-1 rounded font-medium">
-                Featured
-              </span>
-            )}
-          </div>
+        <div>
+          <h3 className="font-normal text-lg mb-1 group-hover:opacity-70 transition-opacity">
+            {collection.name}
+          </h3>
           
           {collection.description && (
-            <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+            <p className="text-muted-foreground text-sm font-light line-clamp-2">
               {collection.description}
             </p>
           )}
-          
-          <Button 
-            variant="outline" 
-            className="w-full text-black border-gray-300 hover:bg-gray-50"
-            onClick={() => onViewProducts(collection.id)}
-          >
-            View Products
-          </Button>
         </div>
       </CardContent>
     </Card>
