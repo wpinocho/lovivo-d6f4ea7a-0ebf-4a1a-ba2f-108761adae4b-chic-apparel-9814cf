@@ -45,7 +45,7 @@ export const HeroSection = () => {
                 Shop Now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button 
+              <Button style={{ color: '#000000' }} 
                 size="lg" 
                 variant="outline"
                 onClick={scrollToProducts}
